@@ -207,12 +207,12 @@ class DbServiceTest {
         //Then
         if(states.size() != 0) {
             WalletState walletState = states.get(states.size()-1);
-            Assertions.assertThrows(InsufficientFundsException.class, ()->service.sellUSD(walletState.getUsd().add(new BigDecimal(1))));
-            Assertions.assertThrows(InsufficientFundsException.class, ()->service.sellEUR(walletState.getEur().add(new BigDecimal(1))));
-            Assertions.assertThrows(InsufficientFundsException.class, ()->service.sellGBP(walletState.getGbp().add(new BigDecimal(1))));
-            Assertions.assertThrows(InsufficientFundsException.class, ()->service.sellCHF(walletState.getChf().add(new BigDecimal(1))));
-            Assertions.assertThrows(InsufficientFundsException.class, ()->service.sellXAU(walletState.getXau().add(new BigDecimal(1))));
-            Assertions.assertThrows(InsufficientFundsException.class, ()->service.sellJPY(walletState.getJpy().add(new BigDecimal(1))));
+            Assertions.assertThrows(RuntimeException.class, ()->service.sellUSD(walletState.getUsd().add(new BigDecimal(1))));
+            Assertions.assertThrows(RuntimeException.class, ()->service.sellEUR(walletState.getEur().add(new BigDecimal(1))));
+            Assertions.assertThrows(RuntimeException.class, ()->service.sellGBP(walletState.getGbp().add(new BigDecimal(1))));
+            Assertions.assertThrows(RuntimeException.class, ()->service.sellCHF(walletState.getChf().add(new BigDecimal(1))));
+            Assertions.assertThrows(RuntimeException.class, ()->service.sellXAU(walletState.getXau().add(new BigDecimal(1))));
+            Assertions.assertThrows(RuntimeException.class, ()->service.sellJPY(walletState.getJpy().add(new BigDecimal(1))));
         }
     }
 
